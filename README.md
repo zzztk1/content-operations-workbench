@@ -2,6 +2,12 @@
 
 项目2当前目标：交付可验证、可演示、可持续迭代的内容运营 Agent 工作台闭环资产。
 
+## 页面预览
+
+![创作工作台](docs/screenshots/workbench-creator.png)
+
+![历史回查](docs/screenshots/workbench-history.png)
+
 ## 当前已实现能力
 
 - 旧版 baseline：状态机 + SQLite checkpoint + Streamlit / CLI
