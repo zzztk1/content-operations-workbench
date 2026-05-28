@@ -1,0 +1,49 @@
+services:
+  - type: web
+    name: media-agent-v2
+    env: docker
+    rootDir: .
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    autoDeploy: true
+    envVars:
+      - key: CHECKPOINT_BACKEND
+        value: postgres
+      - key: CHECKPOINTER_MOCK
+        value: "false"
+      - key: ENABLE_SSE
+        value: "true"
+      - key: ENABLE_SLOWAPI
+        value: "true"
+      - key: ENABLE_JSON_MODE
+        value: "false"
+      - key: LLM_MOCK
+        value: "false"
+      - key: IMAGE_MOCK
+        value: "false"
+      - key: VISION_REVIEW_MOCK
+        value: "true"
+      - key: STEPFUN_API_BASE
+        value: https://api.stepfun.com/step_plan/v1
+      - key: STEPFUN_MODEL
+        value: step-3.5-flash
+      - key: STEPFUN_IMAGE_API_BASE
+        value: https://api.stepfun.com/v1
+      - key: STEPFUN_IMAGE_MODEL
+        value: step-2x-large
+      - key: STEPFUN_IMAGE_SIZE
+        value: 1024x1024
+      - key: STEPFUN_IMAGE_QUALITY
+        value: standard
+      - key: STEPFUN_VISION_API_BASE
+        value: https://api.stepfun.com/v1
+      - key: STEPFUN_VISION_MODEL
+        value: step-1o-turbo-vision
+      - key: LANGSMITH_ENDPOINT
+        value: https://api.smith.langchain.com
+      - key: LANGSMITH_TRACING
+        value: "true"
+      - key: LANGSMITH_TRACING_V2
+        value: "true"
+      - key: LANGSMITH_PROJECT
+        value: media-agent-v2

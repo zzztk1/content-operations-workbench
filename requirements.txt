@@ -1,0 +1,16 @@
+langchain>=0.2.0
+langgraph>=0.2.0
+langgraph-checkpoint-postgres>=3.0.0
+langchain-openai>=0.1.0
+langchain-community>=0.2.0
+streamlit>=1.36.0
+chromadb>=0.5.0
+openai>=1.30.0
+duckduckgo-search>=6.0.0
+python-dotenv>=1.0.0
+psycopg[binary]>=3.2.0
+fastapi>=0.110.0
+uvicorn[standard]>=0.29.0
+slowapi>=0.1.9
+structlog>=25.0.0
+langsmith>=0.4.0

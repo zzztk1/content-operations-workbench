@@ -1,0 +1,14 @@
+{
+  "scenario": "constructed_bad_cover",
+  "theme_match_score": 28,
+  "readability_score": 32,
+  "composition_score": 25,
+  "overall_score": 28,
+  "passed": false,
+  "risk_flags": [
+    "block_theme_mismatch",
+    "title_zone_unreadable",
+    "composition_chaotic"
+  ],
+  "feedback": "Fixture：画面与文章主题明显不符，标题区域拥挤，构图缺少视觉重心。"
+}

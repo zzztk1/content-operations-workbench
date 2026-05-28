@@ -1,0 +1,51 @@
+# Local secrets and environment
+.env
+.env.*
+!.env.example
+*.local
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+
+# Node / frontend
+node_modules/
+frontend/node_modules/
+frontend/dist/
+dist/
+
+# Runtime outputs, logs, and generated media
+logs/
+outputs/
+benchmarks/latest_*.json
+benchmarks/*_report.json
+*.jsonl
+*.log
+
+# Local data stores and databases
+data/
+*.sqlite
+*.sqlite3
+*.db
+*.duckdb
+
+# Temporary scratch files
+tmp_*.txt
+tmp_*.json
+benchmarks/tmp_*.ps1
+benchmarks/tmp_*.log
+*.tmp
+*.bak
+
+# OS/editor noise
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/

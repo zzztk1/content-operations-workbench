@@ -1,0 +1,51 @@
+@import "tailwindcss";
+
+:root {
+  --workbench-bg: #f6f7f9;
+  --workbench-surface: #ffffff;
+  --workbench-muted: #f8fafc;
+  --workbench-border: rgba(148, 163, 184, 0.42);
+  --workbench-primary: #0f766e;
+  --workbench-accent: #b45309;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.82), rgba(246, 247, 249, 0.92) 240px),
+    var(--workbench-bg);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+::selection {
+  background: rgba(15, 118, 110, 0.16);
+}
+
+::-webkit-scrollbar {
+  height: 10px;
+  width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border: 3px solid transparent;
+  border-radius: 999px;
+  background-clip: padding-box;
+}
+
+button,
+input,
+textarea,
+select,
+a {
+  outline-color: rgba(15, 118, 110, 0.5);
+  outline-offset: 2px;
+}

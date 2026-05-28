@@ -1,0 +1,58 @@
+services:
+  postgres:
+    image: postgres:16
+    container_name: media-agent-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: media_agent
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    volumes:
+      - media_agent_postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d media_agent"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: media-agent-v2
+    restart: unless-stopped
+    depends_on:
+      postgres:
+        condition: service_healthy
+    ports:
+      - "127.0.0.1:8000:8000"
+    environment:
+      STEPFUN_API_BASE: ${STEPFUN_API_BASE:-https://api.stepfun.com/step_plan/v1}
+      STEPFUN_MODEL: ${STEPFUN_MODEL:-step-3.5-flash}
+      STEPFUN_API_KEY: ${STEPFUN_API_KEY}
+      STEPFUN_IMAGE_API_BASE: ${STEPFUN_IMAGE_API_BASE:-https://api.stepfun.com/v1}
+      STEPFUN_IMAGE_MODEL: ${STEPFUN_IMAGE_MODEL:-step-2x-large}
+      STEPFUN_IMAGE_API_KEY: ${STEPFUN_IMAGE_API_KEY}
+      STEPFUN_IMAGE_SIZE: ${STEPFUN_IMAGE_SIZE:-1024x1024}
+      STEPFUN_IMAGE_QUALITY: ${STEPFUN_IMAGE_QUALITY:-standard}
+      STEPFUN_VISION_API_BASE: ${STEPFUN_VISION_API_BASE:-https://api.stepfun.com/v1}
+      STEPFUN_VISION_MODEL: ${STEPFUN_VISION_MODEL:-step-1o-turbo-vision}
+      STEPFUN_VISION_API_KEY: ${STEPFUN_VISION_API_KEY}
+      POSTGRES_DSN: ${POSTGRES_DSN:-postgresql://postgres:postgres@postgres:5432/media_agent}
+      CHECKPOINT_BACKEND: ${CHECKPOINT_BACKEND:-postgres}
+      CHECKPOINTER_MOCK: ${CHECKPOINTER_MOCK:-false}
+      LLM_MOCK: ${LLM_MOCK:-false}
+      IMAGE_MOCK: ${IMAGE_MOCK:-false}
+      VISION_REVIEW_MOCK: ${VISION_REVIEW_MOCK:-true}
+      ENABLE_SSE: ${ENABLE_SSE:-true}
+      ENABLE_SLOWAPI: ${ENABLE_SLOWAPI:-true}
+      ENABLE_JSON_MODE: ${ENABLE_JSON_MODE:-false}
+      LANGSMITH_API_KEY: ${LANGSMITH_API_KEY:-}
+      LANGSMITH_ENDPOINT: ${LANGSMITH_ENDPOINT:-https://api.smith.langchain.com}
+      LANGSMITH_TRACING: ${LANGSMITH_TRACING:-false}
+      LANGSMITH_TRACING_V2: ${LANGSMITH_TRACING_V2:-false}
+      LANGSMITH_WORKSPACE_ID: ${LANGSMITH_WORKSPACE_ID:-}
+      LANGSMITH_PROJECT: ${LANGSMITH_PROJECT:-media-agent-v2}
+
+volumes:
+  media_agent_postgres_data:
