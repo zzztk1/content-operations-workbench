@@ -39,7 +39,7 @@ tab_run, tab_runs = st.tabs(["Run Workflow", "Run History"])
 with tab_run:
     brief = st.text_area(
         "Content brief",
-        placeholder="例如：围绕 AI 产品经理求职，生成一篇小红书风格的避坑指南",
+        placeholder="例如：围绕 AI Agent 在内容运营中的真实应用，生成一篇小红书风格的避坑指南",
         height=120,
     )
 

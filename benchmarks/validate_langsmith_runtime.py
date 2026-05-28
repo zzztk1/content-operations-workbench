@@ -54,7 +54,7 @@ def main() -> None:
 
     with LangGraphMediaAgentEngine() as engine:
         result = engine.run_workflow(
-            brief="AI产品经理求职内容运营选题",
+            brief="AI Agent 在内容运营中的真实应用场景",
             platform="小红书",
             style="种草推荐",
             approval_decision="approve",

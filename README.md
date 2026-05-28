@@ -1,6 +1,6 @@
 # Media Agent (Project 2 Complete Delivery v1)
 
-项目2当前目标：在“可投递版”基础上，交付可验证、可演示、可汇总到简历的完整第一版闭环资产。
+项目2当前目标：交付可验证、可演示、可持续迭代的内容运营 Agent 工作台闭环资产。
 
 ## 当前已实现能力
 
@@ -71,14 +71,14 @@ CLI：
 
 ```bash
 cd src
-python run_workflow.py --brief "AI产品经理求职内容运营选题" --platform 小红书 --style 种草推荐
+python run_workflow.py --brief "AI Agent 在内容运营中的真实应用场景" --platform 小红书 --style 种草推荐
 ```
 
 LangGraph v2 CLI（并行 MVP 链路）：
 
 ```bash
 cd src
-py run_workflow_v2.py --brief "AI产品经理求职内容运营选题" --platform 小红书 --style 种草推荐
+py run_workflow_v2.py --brief "AI Agent 在内容运营中的真实应用场景" --platform 小红书 --style 种草推荐
 ```
 
 LangGraph v2 API（含 `/health`、SlowAPI 限流、轻量熔断器、优雅关闭）：
@@ -105,7 +105,7 @@ LangGraph v2 SSE 事件流（token 级事件流 + 图级更新）：
 ```bash
 curl -N -X POST http://127.0.0.1:8000/v2/run/stream ^
   -H "Content-Type: application/json" ^
-  -d "{\"brief\":\"AI产品经理求职内容运营选题\",\"platform\":\"小红书\",\"style\":\"种草推荐\"}"
+  -d "{\"brief\":\"AI Agent 在内容运营中的真实应用场景\",\"platform\":\"小红书\",\"style\":\"种草推荐\"}"
 ```
 
 如果只是本地验证新版 graph，可以先设置：
@@ -180,7 +180,7 @@ API 运行 workflow：
 ```bash
 curl -X POST http://127.0.0.1:8000/v2/run ^
   -H "Content-Type: application/json" ^
-  -d "{\"brief\":\"AI产品经理求职内容运营选题\",\"platform\":\"小红书\",\"style\":\"种草推荐\"}"
+  -d "{\"brief\":\"AI Agent 在内容运营中的真实应用场景\",\"platform\":\"小红书\",\"style\":\"种草推荐\"}"
 ```
 
 ## 自动验证与演示材料
@@ -204,7 +204,6 @@ curl -X POST http://127.0.0.1:8000/v2/run ^
 - PDF亮点映射：`docs/项目2-对标PDF亮点映射与提升清单.md`
 - 最终完成度清单：`docs/项目2最终完成度清单-v2.md`
 - 工程化交付说明：`docs/工程化交付说明-v1.md`
-- 简历证据：`docs/简历证据清单.md`
 
 运行自动验证：
 
@@ -240,9 +239,3 @@ py benchmarks\audit_feature_coverage.py
 
 - `logs/api_v2.jsonl`
 - `logs/engine_v2.jsonl`
-
-## 当前边界（明确未实现）
-
-- 未实现生产级计费对账成本核算
-
-以上能力已纳入后续提升清单，不在当前版本中虚构标注。

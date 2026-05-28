@@ -114,7 +114,7 @@ def main() -> None:
     cases = [
         {
             "name": "approve_path",
-            "brief": "AI产品经理求职内容选题与发布建议",
+            "brief": "AI Agent 内容运营选题与发布建议",
             "platform": "小红书",
             "style": "种草推荐",
             "approval": "approve",

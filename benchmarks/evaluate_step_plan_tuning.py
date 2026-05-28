@@ -18,8 +18,8 @@ from langgraph_v2.engine import LangGraphMediaAgentEngine  # noqa: E402
 
 SCENARIOS: List[Dict[str, Any]] = [
     {
-        "name": "resume_packaging",
-        "brief": "AI产品经理如何把内容运营项目写进简历和面试稿",
+        "name": "content_strategy_packaging",
+        "brief": "AI Agent 在内容运营工作台中的价值如何讲清楚",
         "platform": "小红书",
         "style": "种草推荐",
     },
@@ -30,8 +30,8 @@ SCENARIOS: List[Dict[str, Any]] = [
         "style": "经验总结",
     },
     {
-        "name": "interview_guidance",
-        "brief": "AI产品经理求职时怎么把项目二讲成系统能力而不是功能堆砌",
+        "name": "operator_guidance",
+        "brief": "内容运营团队如何把 Agent 工作流讲成系统能力而不是功能堆砌",
         "platform": "小红书",
         "style": "干货拆解",
     },

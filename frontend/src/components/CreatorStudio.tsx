@@ -943,7 +943,7 @@ export default function CreatorStudio({ view }: { view: CreatorView }) {
             <Checklist title="半自动发布步骤" items={publishPackage?.manual_steps ?? platformRule?.publish_steps ?? []} />
           </div>
           <div className="mt-4 rounded-lg border border-slate-200 bg-white p-4 text-sm text-slate-600">
-            <h3 className="mb-3 font-semibold text-slate-800">自动发布边界</h3>
+            <h3 className="mb-3 font-semibold text-slate-800">自动发布说明</h3>
             <Info label="官方 API 优先" value={publishPackage?.automation_research?.official_api_first ? '是' : '待确认'} />
             <Info label="不保存密码" value={publishPackage?.automation_research?.no_password_storage ? '是' : '是'} />
             <Info label="不绕过验证码" value={publishPackage?.automation_research?.no_captcha_bypass ? '是' : '是'} />

@@ -61,7 +61,7 @@ def main() -> None:
             "/v2/run",
             headers={"X-Request-ID": "step-plan-smoke-001"},
             json={
-                "brief": "AI产品经理求职内容运营选题",
+                "brief": "AI Agent 在内容运营中的真实应用场景",
                 "platform": "小红书",
                 "style": "种草推荐",
             },
@@ -72,7 +72,7 @@ def main() -> None:
             "/v2/run/stream",
             headers={"X-Request-ID": "step-plan-stream-001"},
             json={
-                "brief": "AI产品经理求职内容运营选题",
+                "brief": "AI Agent 在内容运营中的真实应用场景",
                 "platform": "小红书",
                 "style": "种草推荐",
             },

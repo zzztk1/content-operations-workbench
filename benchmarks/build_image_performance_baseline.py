@@ -98,7 +98,7 @@ def main() -> None:
         "baseline_kind": "single_full_workflow_cover_generation",
         "purpose": (
             "Representative generate_cover latency for the default image model on one real API run "
-            "(bind resume claims to this file; not a throughput benchmark)."
+            "(bind product and performance notes to this file; not a throughput benchmark)."
         ),
         "sources": {
             "image_model_switch_report": rel_to_project(switch_path),

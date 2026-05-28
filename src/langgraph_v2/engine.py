@@ -1121,7 +1121,7 @@ class LangGraphMediaAgentEngine:
                         f"platform={state['platform']}\n"
                         f"style={state['style']}\n"
                         "Generate 2 topic candidates that stay strictly on the given brief. "
-                        "Do not inject unrelated domains, jobs, resume, interview, or AI product manager angles unless the brief explicitly asks for them."
+                        "Do not inject unrelated domains, career framing, or role-specific angles unless the brief explicitly asks for them."
                     ),
                     temperature=0.0,
                     max_tokens=1000,
@@ -1243,7 +1243,7 @@ class LangGraphMediaAgentEngine:
                     f"content should be around {draft_plan['length']} and use {draft_plan['paragraphs']}. "
                     f"Tone requirement: {draft_plan['tone']}. "
                     "Use a single JSON string for content and preserve paragraph breaks with \\n\\n. "
-                    "Do not inject job-search, resume, interview, or AI product manager framing unless the brief explicitly asks for it. "
+                    "Do not inject career or role-specific framing unless the brief explicitly asks for it. "
                     "tags must be 2 to 3 Chinese hashtags starting with # and relevant to the actual topic. "
                     "platform must equal the requested platform exactly."
                 )
@@ -1274,7 +1274,7 @@ class LangGraphMediaAgentEngine:
                         "Stay on brief/topic; follow length/paragraph/tone/hook rules in the user block. "
                         "Treat style_hints as guidance only, do not copy literally. "
                         "Use \\n\\n between paragraphs. "
-                        "No resume/interview/job-search framing unless the brief asks. "
+                        "No career framing unless the brief asks. "
                         "tags: 2–3 Chinese hashtags starting with #."
                     ),
                     "\n".join(writer_prompt_lines),
@@ -1456,7 +1456,7 @@ class LangGraphMediaAgentEngine:
                 repair_requirements = (
                     "Return JSON object with prompt, negative_prompt, overlay_text, visual_style, aspect_ratio. "
                     "Stay strictly on the article brief and title. "
-                    "Do not inject AI product manager, resume, or job-search framing unless the brief explicitly asks for it. "
+                    "Do not inject role-specific or career framing unless the brief explicitly asks for it. "
                     "overlay_text must be short Chinese text suitable for a cover image."
                 )
                 llm = self._call_llm(
